@@ -27,5 +27,5 @@ jobs:
         with:
           args: 'format --diff'
       - name: Unit Tests
-        run: poetry run pytest test_test.py --doctest-modules --cov --junitxml=junit/test-results.xml --cov-report=xml --cov-report=html
+        run: poetry run pytest --doctest-modules --cov --junitxml=junit/test-results.xml --cov-report=html
 
