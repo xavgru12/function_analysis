@@ -3,7 +3,7 @@ name: Ruff
 on: [push]
 
 jobs:
-  lint:
+  ci:
 
     runs-on: ubuntu-latest
     steps:
@@ -14,12 +14,7 @@ jobs:
           python-version: '3.11'
       - name: Install Poetry
         run: pip install poetry 
-      - name: Install required Python packages
-        run: |
-          # poetry config virtualenvs.in-project true
-              poetry install
-          #    poetry shell
-          #    ruff format --diff
+        run: poetry install
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
       - uses: chartboost/ruff-action@v1
@@ -30,3 +25,6 @@ jobs:
         name: Format using ruff
         with:
           args: 'format --diff'
+      - name: Unit Tests
+        run: poetry run pytest test_test.py --doctest-modules --cov --junitxml=junit/test-results.xml --cov-report=xml --cov-report=html
+
