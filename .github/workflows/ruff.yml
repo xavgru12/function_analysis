@@ -15,8 +15,8 @@ jobs:
       - name: Install Poetry
         run: pip install poetry 
       - name: Install required Python packages
-        run: poetry install
-      - name: Format with ruff 
-        run: ruff format --diff
+        run: |
+              poetry install
+              ruff format --diff
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
