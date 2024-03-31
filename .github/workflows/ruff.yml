@@ -16,9 +16,12 @@ jobs:
         run: pip install poetry 
       - name: Install required Python packages
         run: |
-              poetry config virtualenvs.in-project true
+          # poetry config virtualenvs.in-project true
               poetry install
-              poetry shell
-              ruff format --diff
+          #    poetry shell
+          #    ruff format --diff
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
+      - uses: chartboost/ruff-action@v1
+        with:
+        args: 'check'
