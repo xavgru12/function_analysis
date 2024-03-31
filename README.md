@@ -1,4 +1,4 @@
-# Perequisites to run this Python script
+# Prerequisites to run this Python script
 
 ## install and setup Postgresql
 

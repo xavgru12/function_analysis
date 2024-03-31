@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "function-analysis"
+package-mode = false
+version = "0.1.0"
+description = ""
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ruff = "^0.3.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+select = ["ALL"]
+ignore = ["T201"]
