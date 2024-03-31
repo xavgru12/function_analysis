@@ -16,6 +16,7 @@ jobs:
         run: pip install poetry 
       - name: Install required Python packages
         run: |
+              poetry config virtualenvs.in-project true
               poetry install
               poetry shell
               ruff format --diff
