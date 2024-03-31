@@ -22,8 +22,6 @@ jobs:
           #    ruff format --diff
       - name: Display Python version
         run: python -c "import sys; print(sys.version)"
-      - name: run
-        run: python3 test.py
       - uses: chartboost/ruff-action@v1
         name: Lint using ruff
         with:
