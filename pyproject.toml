@@ -16,6 +16,8 @@ pytest-cov = "^5.0.0"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.ruff]
+exclude = ["test_*"]
 
 [tool.ruff.lint]
 select = ["ALL"]
