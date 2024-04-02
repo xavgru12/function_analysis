@@ -1,4 +1,4 @@
-# Perequisites to run this Python script
+# prerequisites to run this Python script
 
 ## install and setup Postgresql
 
@@ -30,3 +30,18 @@ let Poetry handle everything with: <br>
 ```
 poetry install
 ```
+## lint and format using ruff
+Ruff is included as Python package with poetry in this project. <br> 
+lint:
+```
+poetry run ruff check
+```
+format:
+```
+poetry run ruff format 
+```
+Use --diff option to show what would be formatted:
+```
+poetry run ruff format --diff
+```
+
