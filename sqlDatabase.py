@@ -40,10 +40,17 @@ class SqlDatabase:
 
         with open(train_csv, 'r') as file:
             self.train_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
-            print(self.train_dataframe)
+            print(f"train:\n {self.train_dataframe}")
 
-
+        with open(ideal_csv, 'r') as file:
+            self.ideal_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
+            print(f"ideal:\n {self.ideal_dataframe}")
          
+        with open(test_csv, 'r') as file:
+            self.test_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
+            print(f"test:\n {self.test_dataframe}")
+
+
 
     def write(self):
         # write to sql
