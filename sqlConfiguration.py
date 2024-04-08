@@ -1,6 +1,5 @@
 import json
-from typing import Optional
-from typing import Any
+from typing import Any, Optional
 
 
 class SqlConfiguration:
@@ -15,7 +14,7 @@ class SqlConfiguration:
 
     def parse(self):
         with open(
-            "config/database_configuration.json", "r"
+            "config/database_configuration.json",
         ) as file:  # save config file path as attribute and parameter or constructor
             config = json.load(file)
             print(config)

@@ -1,11 +1,12 @@
 import os
-import commandLineArgumentParser
-from typing import Optional
-from typing import Any
-import sqlConfiguration
+from typing import Any, Optional
+
 import pandas
 import sqlalchemy
 import sqlalchemy_utils
+
+import commandLineArgumentParser
+import sqlConfiguration
 
 
 class SqlDatabase:
@@ -64,13 +65,13 @@ class SqlDatabase:
         if not os.path.isfile(test_csv):
             raise FileNotFoundError(test_csv)
 
-        with open(train_csv, "r") as file:
+        with open(train_csv) as file:
             self.train_dataframe = pandas.read_csv(file, sep=",", encoding="UTF-8")
 
-        with open(ideal_csv, "r") as file:
+        with open(ideal_csv) as file:
             self.ideal_dataframe = pandas.read_csv(file, sep=",", encoding="UTF-8")
 
-        with open(test_csv, "r") as file:
+        with open(test_csv) as file:
             self.test_dataframe = pandas.read_csv(file, sep=",", encoding="UTF-8")
 
         self.write()
@@ -79,26 +80,26 @@ class SqlDatabase:
         print("write")
         train_table_name = "train"
         self.train_dataframe.to_sql(
-            train_table_name, con=self.engine, index=False, if_exists="replace"
+            train_table_name, con=self.engine, index=False, if_exists="replace",
         )
         train_table = sqlalchemy.Table(
-            train_table_name, self.meta, autoload_with=self.engine
+            train_table_name, self.meta, autoload_with=self.engine,
         )
 
         ideal_table_name = "ideal"
         self.ideal_dataframe.to_sql(
-            ideal_table_name, con=self.engine, index=False, if_exists="replace"
+            ideal_table_name, con=self.engine, index=False, if_exists="replace",
         )
         ideal_table = sqlalchemy.Table(
-            ideal_table_name, self.meta, autoload_with=self.engine
+            ideal_table_name, self.meta, autoload_with=self.engine,
         )
 
         test_table_name = "test"
         self.test_dataframe.to_sql(
-            test_table_name, con=self.engine, index=False, if_exists="replace"
+            test_table_name, con=self.engine, index=False, if_exists="replace",
         )
         test_table = sqlalchemy.Table(
-            test_table_name, self.meta, autoload_with=self.engine
+            test_table_name, self.meta, autoload_with=self.engine,
         )
 
     def read(self):
