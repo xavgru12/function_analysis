@@ -80,26 +80,41 @@ class SqlDatabase:
         print("write")
         train_table_name = "train"
         self.train_dataframe.to_sql(
-            train_table_name, con=self.engine, index=False, if_exists="replace",
+            train_table_name,
+            con=self.engine,
+            index=False,
+            if_exists="replace",
         )
         train_table = sqlalchemy.Table(
-            train_table_name, self.meta, autoload_with=self.engine,
+            train_table_name,
+            self.meta,
+            autoload_with=self.engine,
         )
 
         ideal_table_name = "ideal"
         self.ideal_dataframe.to_sql(
-            ideal_table_name, con=self.engine, index=False, if_exists="replace",
+            ideal_table_name,
+            con=self.engine,
+            index=False,
+            if_exists="replace",
         )
         ideal_table = sqlalchemy.Table(
-            ideal_table_name, self.meta, autoload_with=self.engine,
+            ideal_table_name,
+            self.meta,
+            autoload_with=self.engine,
         )
 
         test_table_name = "test"
         self.test_dataframe.to_sql(
-            test_table_name, con=self.engine, index=False, if_exists="replace",
+            test_table_name,
+            con=self.engine,
+            index=False,
+            if_exists="replace",
         )
         test_table = sqlalchemy.Table(
-            test_table_name, self.meta, autoload_with=self.engine,
+            test_table_name,
+            self.meta,
+            autoload_with=self.engine,
         )
 
     def read(self):
