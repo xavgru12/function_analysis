@@ -23,9 +23,13 @@ class SqlDatabase:
         
         if arguments.csv:
            self.write_csv(arguments.csv) 
+        else:
+            self.read()
+
+        self.print()
 
 
-    def setup(self): #setup sql database, composition to sqlConfiguration
+    def setup(self):
         config = self.configuration.read()
         connection_url = sqlalchemy.engine.URL.create(
             drivername = config["drivername"],
@@ -62,21 +66,19 @@ class SqlDatabase:
 
         with open(train_csv, 'r') as file:
             self.train_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
-            print(f"train:\n {self.train_dataframe}")
 
         with open(ideal_csv, 'r') as file:
             self.ideal_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
-            print(f"ideal:\n {self.ideal_dataframe}")
          
         with open(test_csv, 'r') as file:
             self.test_dataframe = pandas.read_csv(file, sep=',', encoding="UTF-8")
-            print(f"test:\n {self.test_dataframe}")
 
         self.write()
 
 
 
     def write(self):
+        print("write")
         train_table_name = "train" 
         self.train_dataframe.to_sql(train_table_name , con=self.engine, index=False, if_exists='replace')
         train_table = sqlalchemy.Table(train_table_name , self.meta, autoload_with = self.engine)
@@ -94,9 +96,15 @@ class SqlDatabase:
 
 
     def read(self):
-        #implement read which returns values from sql database, do I take values from sql table or from the panda dataframe?
-        pass
+        print("read")
+        self.train_dataframe = pandas.read_sql_table("train", self.engine)
+        self.ideal_dataframe = pandas.read_sql_table("ideal", self.engine)
+        self.test_dataframe = pandas.read_sql_table("test", self.engine)
 
+    def print(self):
+        print(f"train:\n {self.train_dataframe}")
+        print(f"ideal:\n {self.ideal_dataframe}")
+        print(f"test:\n {self.test_dataframe}")
 
 sql_database = SqlDatabase()
 #args = parser.readArguments()
