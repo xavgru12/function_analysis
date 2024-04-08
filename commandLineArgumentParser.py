@@ -16,10 +16,10 @@ class CommandLineArgumentParser:
         )
         self.args = parser.parse_args()
 
-    def readArguments(self):
+    def read_arguments(self):
         return self.args
 
 
 parser = CommandLineArgumentParser()
-args = parser.readArguments()
+args = parser.read_arguments()
 print(args.csv)

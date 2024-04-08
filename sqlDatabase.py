@@ -21,7 +21,7 @@ class SqlDatabase:
             commandLineArgumentParser.CommandLineArgumentParser()
         )
         self.configuration = sqlConfiguration.SqlConfiguration()
-        arguments = self.command_line_argument_parser.readArguments()
+        arguments = self.command_line_argument_parser.read_arguments()
         self.setup()
 
         if arguments.csv:
@@ -46,8 +46,8 @@ class SqlDatabase:
 
         self.meta = sqlalchemy.MetaData()
         self.meta.create_all(self.engine)
-        Session = sqlalchemy.orm.sessionmaker(bind=self.engine)
-        self.sql_session = Session()
+        session = sqlalchemy.orm.sessionmaker(bind=self.engine)
+        self.sql_session = session()
 
     def write_mapping(self):
         return None
