@@ -23,7 +23,4 @@ class CommandLineArgumentParser:
 parser = CommandLineArgumentParser()
 args = parser.readArguments()
 print(args.csv)
-#https://stackoverflow.com/questions/15301147/python-argparse-default-value-or-specified-value
-#https://stackoverflow.com/questions/30487767/check-if-argparse-optional-argument-is-set-or-not
-# class vs instance variables
-# https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide
+
