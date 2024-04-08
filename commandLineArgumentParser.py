@@ -14,6 +14,11 @@ class CommandLineArgumentParser:
             nargs="?",
             type=os.path.abspath,
         )
+        parser.add_argument(
+            "--config",
+            help="path to config file",
+            default="config/database_configuration.json",
+        )
         self.args = parser.parse_args()
 
     def read_arguments(self):

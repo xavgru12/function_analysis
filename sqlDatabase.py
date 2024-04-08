@@ -20,8 +20,8 @@ class SqlDatabase:
         self.command_line_argument_parser = (
             commandLineArgumentParser.CommandLineArgumentParser()
         )
-        self.configuration = sqlConfiguration.SqlConfiguration()
         arguments = self.command_line_argument_parser.read_arguments()
+        self.configuration = sqlConfiguration.SqlConfiguration(arguments.config)
         self.setup()
 
         if arguments.csv:

@@ -3,7 +3,8 @@ from typing import Any, Optional
 
 
 class SqlConfiguration:
-    def __init__(self):
+    def __init__(self, config_file_path):
+        self.config_file_path = config_file_path
         self.drivername = Optional[Any]
         self.username = Optional[Any]
         self.password = Optional[Any]
@@ -14,8 +15,7 @@ class SqlConfiguration:
 
     def parse(self):
         with open(
-            "config/database_configuration.json",
-        ) as file:  # save config file path as attribute and parameter or constructor
+        self.config_file_path) as file: 
             config = json.load(file)
             print(config)
 
