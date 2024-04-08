@@ -3,6 +3,7 @@ import os
 from typing import Optional
 from typing import Any
 
+
 class CommandLineArgumentParser:
     def __init__(self):
         self.args = Optional[Any]
@@ -11,7 +12,7 @@ class CommandLineArgumentParser:
             "--csv",
             help="path to directory which contains train.csv, ideal.csv and test.csv",
             const="data",
-            nargs='?',
+            nargs="?",
             type=os.path.abspath,
         )
         self.args = parser.parse_args()
@@ -23,4 +24,3 @@ class CommandLineArgumentParser:
 parser = CommandLineArgumentParser()
 args = parser.readArguments()
 print(args.csv)
-
