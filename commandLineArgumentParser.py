@@ -4,7 +4,7 @@ from typing import Any, Optional
 
 
 class CommandLineArgumentParser:
-    def __init__(self):
+    def __init__(self, argv=None):
         self.args = Optional[Any]
         parser = argparse.ArgumentParser()
         parser.add_argument(
@@ -19,7 +19,7 @@ class CommandLineArgumentParser:
             help="path to config file",
             default="config/database_configuration.json",
         )
-        self.args = parser.parse_args()
+        self.args = parser.parse_args(argv)
 
     def read_arguments(self):
         return self.args
