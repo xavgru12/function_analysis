@@ -10,16 +10,15 @@ import sqlConfiguration
 
 
 class SqlDatabase:
-    def __init__(self):
+    def __init__(self, commandLineArgumentParser=commandLineArgumentParser.CommandLineArgumentParser()
+):
         self.train_dataframe = Optional[Any]
         self.ideal_dataframe = Optional[Any]
         self.test_dataframe = Optional[Any]
         self.sql_session = None
         self.engine = None
         self.meta = None
-        self.command_line_argument_parser = (
-            commandLineArgumentParser.CommandLineArgumentParser()
-        )
+        self.command_line_argument_parser =commandLineArgumentParser
         arguments = self.command_line_argument_parser.read_arguments()
         self.configuration = sqlConfiguration.SqlConfiguration(arguments.config)
         self.setup()
