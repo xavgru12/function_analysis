@@ -53,3 +53,4 @@ class TestCommandLineArgumentParser(unittest.TestCase):
         test_object = commandLineArgumentParser.CommandLineArgumentParser(["--config", "test_config/database_configuration.json"])
         arguments = test_object.read_arguments()
         self.assertEqual(arguments.config, "test_config/database_configuration.json")
+
