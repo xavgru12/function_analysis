@@ -34,15 +34,3 @@ class SqlConfiguration:
     def read(self):
         return self.__dict__
 
-
-# sql_configuration = SqlConfiguration()
-
-# if __name__ == "__main__":
-# config = dict()
-# config["drivername"] = "postgresql"
-# config["username"] = "postgres"
-# config["password"] = "postgres"
-# config["host"] = "localhost"
-# config["database"] = "function-analysis"
-# with open("config/database_configuration.json", "w+") as file:
-#    json.dump(config, file, indent=4)
