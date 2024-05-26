@@ -25,6 +25,7 @@ class CommandLineArgumentParser:
         return self.args
 
 
-parser = CommandLineArgumentParser()
-args = parser.read_arguments()
-print(args.csv)
+if __name__ == "__main__":
+    parser = CommandLineArgumentParser()
+    args = parser.read_arguments()
+    print(args.csv)
