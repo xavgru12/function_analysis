@@ -25,6 +25,7 @@ class CommandLineArgumentParser:
         self.args = parser.parse_args(argv)
 
     """Methods of CommandLineArgumentParser."""
+
     def read_arguments(self):
         """Return arguments by argparse."""
         return self.args
