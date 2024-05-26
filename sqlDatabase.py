@@ -10,8 +10,10 @@ import sqlConfiguration
 
 
 class SqlDatabase:
-    def __init__(self, parser=None,
-):
+    def __init__(
+        self,
+        parser=None,
+    ):
         self.train_dataframe = Optional[Any]
         self.ideal_dataframe = Optional[Any]
         self.test_dataframe = Optional[Any]
@@ -20,7 +22,9 @@ class SqlDatabase:
         self.meta = None
 
         if parser is None:
-            self.command_line_argument_parser = commandLineArgumentParser.CommandLineArgumentParser()
+            self.command_line_argument_parser = (
+                commandLineArgumentParser.CommandLineArgumentParser()
+            )
         else:
             self.command_line_argument_parser = parser
 
@@ -89,7 +93,7 @@ class SqlDatabase:
             index=False,
             if_exists="replace",
         )
-        train_table = sqlalchemy.Table(
+        sqlalchemy.Table(
             train_table_name,
             self.meta,
             autoload_with=self.engine,
@@ -102,7 +106,7 @@ class SqlDatabase:
             index=False,
             if_exists="replace",
         )
-        ideal_table = sqlalchemy.Table(
+        sqlalchemy.Table(
             ideal_table_name,
             self.meta,
             autoload_with=self.engine,
@@ -115,7 +119,7 @@ class SqlDatabase:
             index=False,
             if_exists="replace",
         )
-        test_table = sqlalchemy.Table(
+        sqlalchemy.Table(
             test_table_name,
             self.meta,
             autoload_with=self.engine,
@@ -131,6 +135,7 @@ class SqlDatabase:
         print(f"train:\n {self.train_dataframe}")
         print(f"ideal:\n {self.ideal_dataframe}")
         print(f"test:\n {self.test_dataframe}")
+
 
 if __name__ == "__main__":
     sql_database = SqlDatabase()

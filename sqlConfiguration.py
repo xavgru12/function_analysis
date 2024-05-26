@@ -33,4 +33,3 @@ class SqlConfiguration:
 
     def read(self):
         return self.__dict__
-

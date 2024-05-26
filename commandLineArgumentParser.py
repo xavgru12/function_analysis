@@ -4,7 +4,10 @@ from typing import Any, Optional
 
 
 class CommandLineArgumentParser:
+    """Parse command line arguments using argparse."""
+
     def __init__(self, argv=None):
+        """Initialize argparse and parses csv and config."""
         self.args = Optional[Any]
         parser = argparse.ArgumentParser()
         parser.add_argument(
@@ -21,7 +24,9 @@ class CommandLineArgumentParser:
         )
         self.args = parser.parse_args(argv)
 
+    """Methods of CommandLineArgumentParser."""
     def read_arguments(self):
+        """Return arguments by argparse."""
         return self.args
 
 
