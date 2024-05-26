@@ -10,10 +10,13 @@ import sqlConfiguration
 
 
 class SqlDatabase:
+    """Read and write to sql database."""
+
     def __init__(
         self,
         parser=None,
     ):
+        """Initialize sql database."""
         self.train_dataframe = Optional[Any]
         self.ideal_dataframe = Optional[Any]
         self.test_dataframe = Optional[Any]
@@ -40,6 +43,7 @@ class SqlDatabase:
         self.print()
 
     def setup(self):
+        """Database is setup."""
         config = self.configuration.read()
         connection_url = sqlalchemy.engine.URL.create(
             drivername=config["drivername"],
@@ -58,9 +62,10 @@ class SqlDatabase:
         self.sql_session = session()
 
     def write_mapping(self):
-        return None
+        """Write mapping."""
 
     def write_csv(self, path):
+        """Write csv files to sql."""
         train_csv = os.path.join(path, "train.csv")
         if not os.path.isfile(train_csv):
             raise FileNotFoundError(train_csv)
@@ -85,6 +90,7 @@ class SqlDatabase:
         self.write()
 
     def write(self):
+        """Write to sql."""
         print("write")
         train_table_name = "train"
         self.train_dataframe.to_sql(
@@ -126,12 +132,14 @@ class SqlDatabase:
         )
 
     def read(self):
+        """Read from sql database."""
         print("read")
         self.train_dataframe = pandas.read_sql_table("train", self.engine)
         self.ideal_dataframe = pandas.read_sql_table("ideal", self.engine)
         self.test_dataframe = pandas.read_sql_table("test", self.engine)
 
     def print(self):
+        """Print panda dataframes."""
         print(f"train:\n {self.train_dataframe}")
         print(f"ideal:\n {self.ideal_dataframe}")
         print(f"test:\n {self.test_dataframe}")
