@@ -3,7 +3,7 @@ from typing import Any, Optional
 
 
 class SqlConfiguration:
-    """configure sql."""
+    """Configure sql."""
 
     def __init__(self, config_file_path):
         """Initialize sql."""
