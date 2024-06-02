@@ -1,7 +1,7 @@
 import os
 from typing import Any, Optional
 
-import sqlDatabase
+from .sql.sqlDatabase import sqlDatabase
 import ideal
 import training
 import test

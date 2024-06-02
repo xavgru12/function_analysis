@@ -5,9 +5,8 @@ import pandas
 import sqlalchemy
 import sqlalchemy_utils
 
-import commandLineArgumentParser
+from ..parser.commandLineArgumentParser import commandLineArgumentParser
 import sqlConfiguration
-
 
 class SqlDatabase:
     """Read and write to sql database."""
