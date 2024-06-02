@@ -5,8 +5,8 @@ import pandas
 import sqlalchemy
 import sqlalchemy_utils
 
-from ..parser.commandLineArgumentParser import commandLineArgumentParser
-import sqlConfiguration
+from src.parser.commandLineArgumentParser import CommandLineArgumentParser
+from ..sql.sqlConfiguration import SqlConfiguration
 
 class SqlDatabase:
     """Read and write to sql database."""
@@ -25,13 +25,13 @@ class SqlDatabase:
 
         if parser is None:
             self.command_line_argument_parser = (
-                commandLineArgumentParser.CommandLineArgumentParser()
+                CommandLineArgumentParser()
             )
         else:
             self.command_line_argument_parser = parser
 
         arguments = self.command_line_argument_parser.read_arguments()
-        self.configuration = sqlConfiguration.SqlConfiguration(arguments.config)
+        self.configuration = SqlConfiguration(arguments.config)
         self.setup()
 
         if arguments.csv:

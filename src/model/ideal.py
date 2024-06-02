@@ -1,7 +1,7 @@
-import baseCoordinates
+from .baseCoordinates import BaseCoordinates
 
 
-class Ideal(baseCoordinates.BaseCoordinates):
+class Ideal(BaseCoordinates):
     """Ideal coordinates model."""
 
     def __init__(

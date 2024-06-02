@@ -1,6 +1,6 @@
-import baseCoordinates
+from .baseCoordinates import BaseCoordinates
 
-class Training(baseCoordinates.BaseCoordinates):
+class Training(BaseCoordinates):
     """Training coordinates model."""
 
     def __init__(

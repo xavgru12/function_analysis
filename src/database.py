@@ -1,22 +1,30 @@
 import os
 from typing import Any, Optional
 
-from .sql.sqlDatabase import sqlDatabase
-import ideal
-import training
-import test
+from .sql.sqlDatabase import SqlDatabase
+from .model.ideal import Ideal
+from .model.training import Training
+from .model.test import Test
 
 class Database:
     """Internal database."""
 
     def __init__(
-        self, sql_database = sqlDatabase.SqlDatabase()
+        self, sql_database = None
     ):
-        self.sql_database = sql_database
         """Initialize the internal database."""
         self.train_list = list()
         self.ideal_list = list()
         self.test_list = list()
+
+
+        if sql_database is None:
+            self.sql_database = (
+                 SqlDatabase()
+            )
+        else:
+            self.sql_database = sql_database 
+
         self.read()
 
     def read(self):
@@ -51,10 +59,10 @@ class Database:
             list_to_append.append(model)
 
     def read_train_list(self):
-        self.read_generic_list(self.sql_database.train_dataframe, self.train_list, training.Training)
+        self.read_generic_list(self.sql_database.train_dataframe, self.train_list, Training)
 
     def read_ideal_list(self):
-        self.read_generic_list(self.sql_database.ideal_dataframe, self.ideal_list, ideal.Ideal)
+        self.read_generic_list(self.sql_database.ideal_dataframe, self.ideal_list, Ideal)
 
     def read_test_list(self):
         dict_list = self.convert_to_internal(self.sql_database.test_dataframe)
@@ -62,7 +70,7 @@ class Database:
         print(coordinates)
 
         for x, y in coordinates.items():
-            model = test.Test(x, y)
+            model = Test(x, y)
             self.test_list.append(model)
 
 if __name__ == "__main__":

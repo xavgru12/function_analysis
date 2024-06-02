@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import Mock, patch
 import pandas
 
-import sqlDatabase
+from src.sql.sqlDatabase import SqlDatabase 
 
 class TestSqlDatabase(unittest.TestCase):
     @patch('sqlalchemy.create_engine')
@@ -23,7 +23,7 @@ class TestSqlDatabase(unittest.TestCase):
 
         mock_read_sql_table.return_value = pandas.DataFrame({'column': []})
 
-        test_object = sqlDatabase.SqlDatabase(command_line_argument_parser)
+        test_object = SqlDatabase(command_line_argument_parser)
 
         mock_create_engine.assert_called_once()
         mock_database_exists.assert_called_once_with(mock_engine.url)
@@ -37,7 +37,7 @@ class TestSqlDatabase(unittest.TestCase):
         args.csv = "data"
         command_line_argument_parser.read_arguments.return_value = args 
         
-        test_object = sqlDatabase.SqlDatabase(command_line_argument_parser)
+        test_object = SqlDatabase(command_line_argument_parser)
 
 
         self.assertEqual(test_object.train_dataframe.empty, False)
