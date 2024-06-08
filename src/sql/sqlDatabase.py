@@ -6,7 +6,7 @@ import sqlalchemy
 import sqlalchemy_utils
 
 from src.parser.commandLineArgumentParser import CommandLineArgumentParser
-from ..sql.sqlConfiguration import SqlConfiguration
+from src.sql.sqlConfiguration import SqlConfiguration
 
 class SqlDatabase:
     """Read and write to sql database."""
@@ -145,4 +145,5 @@ class SqlDatabase:
 
 
 if __name__ == "__main__":
+    pass
     sql_database = SqlDatabase()

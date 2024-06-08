@@ -6,8 +6,8 @@ from src.sql.sqlDatabase import SqlDatabase
 
 class TestSqlDatabase(unittest.TestCase):
     @patch('sqlalchemy.create_engine')
-    @patch('sqlDatabase.pandas.read_sql_table')
-    @patch('sqlDatabase.sqlalchemy_utils.database_exists')
+    @patch('src.sql.sqlDatabase.pandas.read_sql_table')
+    @patch('src.sql.sqlDatabase.sqlalchemy_utils.database_exists')
     def test_init_read(self, mock_database_exists, mock_read_sql_table, mock_create_engine):
         command_line_argument_parser = Mock()
         args = Mock()
