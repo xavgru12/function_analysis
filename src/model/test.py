@@ -8,8 +8,8 @@ class Test(BaseCoordinates):
     def __init__(
         self, x_value, y_value,
     ):
-        self.point = Point(x_value, y_value)
         """Initialize the test coordinate."""
+        self.point = Point(x_value, y_value)
 
 
 if __name__ == "__main__":

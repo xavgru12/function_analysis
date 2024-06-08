@@ -1,4 +1,9 @@
-from collections import namedtuple
+from typing import NamedTuple
 
-Point = namedtuple("Point", "x y")
+
+class Point(NamedTuple):
+    """Class for one point."""
+
+    x: int
+    y: int
 
