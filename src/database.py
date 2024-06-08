@@ -1,16 +1,15 @@
-import os
-from typing import Any, Optional
 
-from .sql.sqlDatabase import SqlDatabase
 from .model.ideal import Ideal
-from .model.training import Training
 from .model.test import Test
+from .model.training import Training
+from .sql.sqlDatabase import SqlDatabase
+
 
 class Database:
     """Internal database."""
 
     def __init__(
-        self, sql_database = None
+        self, sql_database = None,
     ):
         """Initialize the internal database."""
         self.train_list = list()
@@ -23,7 +22,7 @@ class Database:
                  SqlDatabase()
             )
         else:
-            self.sql_database = sql_database 
+            self.sql_database = sql_database
 
         self.read()
 
@@ -47,8 +46,8 @@ class Database:
 
     def convert_to_internal(self, pandas_dataframe):
         dict_list = {
-            col: {row['x']: row[col] for _, row in  pandas_dataframe.iterrows()}
-            for col in  pandas_dataframe.columns if col != 'x'
+            col: {row["x"]: row[col] for _, row in  pandas_dataframe.iterrows()}
+            for col in  pandas_dataframe.columns if col != "x"
         }
         return dict_list
 
@@ -66,7 +65,7 @@ class Database:
 
     def read_test_list(self):
         dict_list = self.convert_to_internal(self.sql_database.test_dataframe)
-        coordinates = dict_list["y"] 
+        coordinates = dict_list["y"]
         print(coordinates)
 
         for x, y in coordinates.items():
