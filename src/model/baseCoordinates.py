@@ -1,9 +1,10 @@
-
 class BaseCoordinates:
     """Base coordinates model."""
 
     def __init__(
-        self, name, x_y_pairs,
+        self,
+        name,
+        x_y_pairs,
     ):
         """Initialize base coordinates."""
         self.x_y_pairs = x_y_pairs
@@ -13,5 +14,4 @@ class BaseCoordinates:
 
 
 if __name__ == "__main__":
-     base_coordinates =  BaseCoordinates()
-
+    base_coordinates = BaseCoordinates()

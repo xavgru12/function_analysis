@@ -8,18 +8,16 @@ class Database:
     """Internal database."""
 
     def __init__(
-        self, sql_database = None,
+        self,
+        sql_database=None,
     ):
         """Initialize the internal database."""
         self.train_list = []
         self.ideal_list = []
         self.test_list = []
 
-
         if sql_database is None:
-            self.sql_database = (
-                 SqlDatabase()
-            )
+            self.sql_database = SqlDatabase()
         else:
             self.sql_database = sql_database
 
@@ -35,8 +33,9 @@ class Database:
     def convert_to_internal(self, pandas_dataframe):
         """Convert the sql database entries to dictionaries."""
         return {
-            col: {row["x"]: row[col] for _, row in  pandas_dataframe.iterrows()}
-            for col in  pandas_dataframe.columns if col != "x"
+            col: {row["x"]: row[col] for _, row in pandas_dataframe.iterrows()}
+            for col in pandas_dataframe.columns
+            if col != "x"
         }
 
     def read_generic_list(self, dataframe, list_to_append, model_class):
@@ -48,13 +47,15 @@ class Database:
 
     def read_train_list(self):
         """Read the train list."""
-        self.read_generic_list(self.sql_database.train_dataframe,
-                               self.train_list, Training)
+        self.read_generic_list(
+            self.sql_database.train_dataframe, self.train_list, Training
+        )
 
     def read_ideal_list(self):
         """Read the ideal list."""
-        self.read_generic_list(self.sql_database.ideal_dataframe,
-                               self.ideal_list, Ideal)
+        self.read_generic_list(
+            self.sql_database.ideal_dataframe, self.ideal_list, Ideal
+        )
 
     def read_test_list(self):
         """Read the test list."""
@@ -65,6 +66,7 @@ class Database:
         for x, y in coordinates.items():
             model = Test(x, y)
             self.test_list.append(model)
+
 
 if __name__ == "__main__":
     database = Database()

@@ -6,4 +6,3 @@ class Point(NamedTuple):
 
     x: int
     y: int
-

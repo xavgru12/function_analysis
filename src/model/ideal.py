@@ -5,7 +5,9 @@ class Ideal(BaseCoordinates):
     """Ideal coordinates model."""
 
     def __init__(
-        self, name, x_y_pairs,
+        self,
+        name,
+        x_y_pairs,
     ):
         """Initialize the ideal coordinates."""
         self.x_y_pairs = x_y_pairs
@@ -15,5 +17,4 @@ class Ideal(BaseCoordinates):
 
 
 if __name__ == "__main__":
-     ideal =  Ideal()
-
+    ideal = Ideal()

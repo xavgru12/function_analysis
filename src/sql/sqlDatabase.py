@@ -25,9 +25,7 @@ class SqlDatabase:
         self.meta = None
 
         if parser is None:
-            self.command_line_argument_parser = (
-                CommandLineArgumentParser()
-            )
+            self.command_line_argument_parser = CommandLineArgumentParser()
         else:
             self.command_line_argument_parser = parser
 
