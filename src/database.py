@@ -1,7 +1,7 @@
 from .model.ideal import Ideal
 from .model.test import Test
 from .model.training import Training
-from .sql.sqlDatabase import SqlDatabase
+from .sql.sql_database import SqlDatabase
 
 
 class Database:

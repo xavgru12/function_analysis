@@ -5,8 +5,8 @@ import pandas
 import sqlalchemy
 import sqlalchemy_utils
 
-from src.parser.commandLineArgumentParser import CommandLineArgumentParser
-from src.sql.sqlConfiguration import SqlConfiguration
+from src.parser.command_line_argument_parser import CommandLineArgumentParser
+from src.sql.sql_configuration import SqlConfiguration
 
 
 class SqlDatabase:

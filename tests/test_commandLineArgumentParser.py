@@ -1,7 +1,7 @@
 import unittest
 import os
 
-from src.parser.commandLineArgumentParser import CommandLineArgumentParser
+from src.parser.command_line_argument_parser import CommandLineArgumentParser
 
 class TestCommandLineArgumentParser(unittest.TestCase):
 

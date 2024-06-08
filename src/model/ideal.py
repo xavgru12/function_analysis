@@ -1,4 +1,4 @@
-from .baseCoordinates import BaseCoordinates
+from .base_coordinates import BaseCoordinates
 
 
 class Ideal(BaseCoordinates):

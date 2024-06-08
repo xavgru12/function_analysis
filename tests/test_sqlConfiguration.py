@@ -1,6 +1,6 @@
 import unittest
 
-from src.sql.sqlConfiguration import SqlConfiguration 
+from src.sql.sql_configuration import SqlConfiguration 
 
 class TestSqlConfiguration(unittest.TestCase):
     def test_init(self):
