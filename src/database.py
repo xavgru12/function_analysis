@@ -48,13 +48,17 @@ class Database:
     def read_train_list(self):
         """Read the train list."""
         self.read_generic_list(
-            self.sql_database.train_dataframe, self.train_list, Training
+            self.sql_database.train_dataframe,
+            self.train_list,
+            Training,
         )
 
     def read_ideal_list(self):
         """Read the ideal list."""
         self.read_generic_list(
-            self.sql_database.ideal_dataframe, self.ideal_list, Ideal
+            self.sql_database.ideal_dataframe,
+            self.ideal_list,
+            Ideal,
         )
 
     def read_test_list(self):
