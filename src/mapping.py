@@ -31,7 +31,6 @@ class Mapping:
 
         return error / x_y_pairs_length
 
-
     def find_smallest_mean_squared_error(self):
         """Find the smallest mean squared error."""
         smallest_mean_squared_error = None
