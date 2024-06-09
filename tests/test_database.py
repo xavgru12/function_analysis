@@ -40,6 +40,8 @@ class TestDatabase(unittest.TestCase):
 
         self.assertEqual(database.train_list[0].x_y_pairs, {1:10, 2:11, 3:12})
         self.assertEqual(database.ideal_list[0].x_y_pairs, {4:10, 5:11, 6:12})
+        self.assertEqual(database.ideal_list[0].name, "y1")
+        self.assertEqual(database.ideal_list[2].name, "y3")
         self.assertEqual(database.test_list[0].point.x, 7)
         self.assertEqual(database.test_list[0].point.y, 10)
 

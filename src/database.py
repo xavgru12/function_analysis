@@ -28,7 +28,6 @@ class Database:
         self.read_train_list()
         self.read_ideal_list()
         self.read_test_list()
-        print(self.test_list[0].point)
 
     def convert_to_internal(self, pandas_dataframe):
         """Convert the sql database entries to dictionaries."""
@@ -65,7 +64,6 @@ class Database:
         """Read the test list."""
         dict_list = self.convert_to_internal(self.sql_database.test_dataframe)
         coordinates = dict_list["y"]
-        print(coordinates)
 
         for x, y in coordinates.items():
             model = Test(x, y)

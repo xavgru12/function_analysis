@@ -13,7 +13,6 @@ class Ideal(BaseCoordinates):
         self.x_y_pairs = x_y_pairs
         self.name = str(name)
         self.entries = len(self.x_y_pairs)
-        print(self.name)
 
 
 if __name__ == "__main__":

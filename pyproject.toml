@@ -25,7 +25,7 @@ exclude = ["test_*"]
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["T201", "PTH", "ANN", "ICN001", "D100"]
+ignore = ["T201", "PTH", "ANN", "ICN001", "D100", "D212"]
 
 
 [tool.coverage.run]
