@@ -15,7 +15,7 @@ class Mapping:
         x_y_pairs_length = len(self.database.train_list[self.training_index].x_y_pairs)
         for key, value in self.database.train_list[self.training_index].x_y_pairs.items():
             error += (value - self.database.ideal_list[ideal_list_index].x_y_pairs[key]) ** 2
-
+        #breakpoint()
         mean_squared_error = error / x_y_pairs_length
         return mean_squared_error
 
@@ -23,11 +23,12 @@ class Mapping:
 
         smallest_mean_squared_error = None 
 
-        for ideal_index in range(len(database.ideal_list)):
+        for ideal_index in range(len(self.database.ideal_list)):
             mean_squared_error = self.calculate_mean_squared_error(ideal_index)
 
             if smallest_mean_squared_error == None:
-                smallest_mean_squared_error = mean_squared_error
+                self.smallest_mean_squared_error = smallest_mean_squared_error = mean_squared_error
+                self.ideal_index = ideal_index
 
             if mean_squared_error < smallest_mean_squared_error:
                 smallest_mean_squared_error = mean_squared_error
@@ -43,10 +44,10 @@ class Mapping:
         if self.max_delta is None or self.ideal_index is None:
             raise ValueError("error: max_delta or ideal index is not set, cannot find matching test coordinates")
 
-        ideal_x_y_pairs = database.ideal_list[self.ideal_index].x_y_pairs 
-        for index in range(len(database.test_list)):
-            test_x = database.test_list[index].point.x 
-            test_y = database.test_list[index].point.y 
+        ideal_x_y_pairs = self.database.ideal_list[self.ideal_index].x_y_pairs 
+        for index in range(len(self.database.test_list)):
+            test_x = self.database.test_list[index].point.x 
+            test_y = self.database.test_list[index].point.y 
 
             delta = abs(ideal_x_y_pairs[test_x] - test_y) 
                 
@@ -63,8 +64,8 @@ class Mapping:
         max_delta = None
 
         for key, value in self.database.train_list[self.training_index].x_y_pairs.items():
-            delta = value - self.database.ideal_list[self.ideal_index].x_y_pairs[key]
-            
+            delta = abs(value - self.database.ideal_list[self.ideal_index].x_y_pairs[key])
+
             if max_delta == None:
                 max_delta = delta
 
