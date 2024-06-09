@@ -5,8 +5,8 @@ import pandas
 import sqlalchemy
 import sqlalchemy_utils
 
-import commandLineArgumentParser
-import sqlConfiguration
+from src.parser.command_line_argument_parser import CommandLineArgumentParser
+from src.sql.sql_configuration import SqlConfiguration
 
 
 class SqlDatabase:
@@ -25,14 +25,12 @@ class SqlDatabase:
         self.meta = None
 
         if parser is None:
-            self.command_line_argument_parser = (
-                commandLineArgumentParser.CommandLineArgumentParser()
-            )
+            self.command_line_argument_parser = CommandLineArgumentParser()
         else:
             self.command_line_argument_parser = parser
 
         arguments = self.command_line_argument_parser.read_arguments()
-        self.configuration = sqlConfiguration.SqlConfiguration(arguments.config)
+        self.configuration = SqlConfiguration(arguments.config)
         self.setup()
 
         if arguments.csv:

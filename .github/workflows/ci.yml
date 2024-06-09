@@ -32,6 +32,8 @@ jobs:
         run: pip install poetry 
       - name: Install required Python packages
         run: poetry install
+      - name: Unit Tests
+        run: poetry run python -m pytest --doctest-modules --cov --junitxml=junit/test-results.xml --cov-report=html
       - uses: chartboost/ruff-action@v1
         name: Lint using ruff
         with:
@@ -40,6 +42,4 @@ jobs:
         name: Format using ruff
         with:
           args: 'format --diff'
-      - name: Unit Tests
-        run: poetry run pytest --doctest-modules --cov --junitxml=junit/test-results.xml --cov-report=html
 

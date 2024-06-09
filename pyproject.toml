@@ -32,3 +32,4 @@ ignore = ["T201", "PTH", "ANN", "ICN001", "D100"]
 omit = [
     "test_*",
     ]
+

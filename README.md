@@ -45,3 +45,8 @@ Use --diff option to show what would be formatted:
 poetry run ruff format --diff
 ```
 
+## run the Python script
+```
+poetry run python -m src.database
+```
+

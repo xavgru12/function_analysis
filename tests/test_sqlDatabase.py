@@ -2,12 +2,12 @@ import unittest
 from unittest.mock import Mock, patch
 import pandas
 
-import sqlDatabase
+from src.sql.sql_database import SqlDatabase 
 
 class TestSqlDatabase(unittest.TestCase):
     @patch('sqlalchemy.create_engine')
-    @patch('sqlDatabase.pandas.read_sql_table')
-    @patch('sqlDatabase.sqlalchemy_utils.database_exists')
+    @patch('src.sql.sql_database.pandas.read_sql_table')
+    @patch('src.sql.sql_database.sqlalchemy_utils.database_exists')
     def test_init_read(self, mock_database_exists, mock_read_sql_table, mock_create_engine):
         command_line_argument_parser = Mock()
         args = Mock()
@@ -23,7 +23,7 @@ class TestSqlDatabase(unittest.TestCase):
 
         mock_read_sql_table.return_value = pandas.DataFrame({'column': []})
 
-        test_object = sqlDatabase.SqlDatabase(command_line_argument_parser)
+        test_object = SqlDatabase(command_line_argument_parser)
 
         mock_create_engine.assert_called_once()
         mock_database_exists.assert_called_once_with(mock_engine.url)
@@ -37,7 +37,7 @@ class TestSqlDatabase(unittest.TestCase):
         args.csv = "data"
         command_line_argument_parser.read_arguments.return_value = args 
         
-        test_object = sqlDatabase.SqlDatabase(command_line_argument_parser)
+        test_object = SqlDatabase(command_line_argument_parser)
 
 
         self.assertEqual(test_object.train_dataframe.empty, False)
