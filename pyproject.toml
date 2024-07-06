@@ -14,6 +14,7 @@ pandas = "^2.2.1"
 sqlalchemy = "^2.0.29"
 sqlalchemy-utils = "^0.41.2"
 psycopg2 = "^2.9.9"
+bokeh = "^3.5.0"
 
 
 [build-system]
