@@ -52,7 +52,7 @@ poetry run python -m src.function_analysis
 
 ## UML
 
-Class diagrams of the script's design are created using drawio and saved in /docs.
+Class diagrams of the script's design are created using drawio and saved in /docs. Here is a link to drawio's website: https://app.diagrams.net/ 
 
 ## Input
 Inside /data, there are three CSV files for training functions, ideal functions and test values.
