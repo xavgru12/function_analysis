@@ -2,8 +2,9 @@ from .database import Database
 
 
 class DatabaseFactory:
-    def __init__(self):
-        pass
+    """Database Factory."""
 
     def create(self):
+        """Create Database."""
         return Database()
+
