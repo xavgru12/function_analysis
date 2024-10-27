@@ -56,7 +56,7 @@ class FunctionAnalysis:
             ideal_y_values = list(ideal_data_model.x_y_pairs.values())
             plot.line(ideal_x_values, 
                 ideal_y_values, 
-                legend_label = "ideal function{}".format(ideal_name), 
+                legend_label = "ideal function {}".format(ideal_name), 
                 line_color="hotpink",
                 line_width = 2)
             
