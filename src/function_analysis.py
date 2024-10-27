@@ -28,6 +28,10 @@ class FunctionAnalysis:
 
     def plot(self):
         for mapping in self.mapping_list:
+            self.plot_each(mapping)
+
+
+    def plot_each(self, mapping):
             training_index = mapping.training_index
             training_name = self.database.train_list[training_index].name
             ideal_index = mapping.ideal_index
@@ -62,10 +66,10 @@ class FunctionAnalysis:
             
             for test_map in mapping.test_map_list:
                 x_y_pair = self.database.test_list[test_map.test_list_index]
-                self.plot_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
+                self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
             show(plot)
 
-    def plot_test_value(self, plot, x, y):
+    def plot_each_test_value(self, plot, x, y):
         plot.circle(x, y, size = 7, color = "orangered", legend_label = "matched test values")
 
 
