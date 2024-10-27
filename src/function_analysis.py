@@ -60,15 +60,6 @@ class FunctionAnalysis:
                 line_color="hotpink",
                 line_width = 2)
             
-            test_x = []
-            test_y = []
-            # looping through the testv_list, to find all test values, which match with the current ideal function
-            #for tv in testv_list:
-            #if(tv.matching_ideal_f_name == tf.matching_ideal_f.name):
-                    #adding the matching x and y values to lists
-            #test_x.append(tv.x_values)
-            #test_y.append(tv.y_values)
-
             for test_map in mapping.test_map_list:
                 x_y_pair = self.database.test_list[test_map.test_list_index]
                 self.plot_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
