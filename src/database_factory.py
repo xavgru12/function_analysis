@@ -1,8 +1,9 @@
-from .database import Database 
+from .database import Database
+
 
 class DatabaseFactory:
     def __init__(self):
-       pass 
+        pass
 
     def create(self):
         return Database()
