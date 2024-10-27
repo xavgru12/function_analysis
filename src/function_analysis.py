@@ -46,28 +46,26 @@ class FunctionAnalysis:
                         y_axis_label = "y",
                         width=700 , height=500)
 
-            # drawing line plot for training values
-            train_x_values = list(train_data_model.x_y_pairs.keys())
-            train_y_values = list(train_data_model.x_y_pairs.values())
-            plot.line(train_x_values, 
-                train_y_values, 
-                legend_label = "training function {}".format(training_name), 
-                line_color="darkslateblue",
-                line_width = 2)
-            
-            # drawing line plot for ideal values 
-            ideal_x_values = list(ideal_data_model.x_y_pairs.keys())
-            ideal_y_values = list(ideal_data_model.x_y_pairs.values())
-            plot.line(ideal_x_values, 
-                ideal_y_values, 
-                legend_label = "ideal function {}".format(ideal_name), 
-                line_color="hotpink",
-                line_width = 2)
-            
+            self.draw_graph(plot, train_data_model, "training", "darkslateblue")
+
+            self.draw_graph(plot, ideal_data_model, "ideal", "hotpink")
+
             for test_map in mapping.test_map_list:
                 x_y_pair = self.database.test_list[test_map.test_list_index]
                 self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
             show(plot)
+
+    def draw_graph(self, plot, data_model, label, color):
+        x_values = list(data_model.x_y_pairs.keys())
+        y_values = list(data_model.x_y_pairs.values())
+        name = data_model.name
+
+        plot.line(x_values,
+                y_values,
+                legend_label = "{} function {}".format(label, name),
+                line_color = color,
+                line_width = 2)
+
 
     def plot_each_test_value(self, plot, x, y):
         plot.circle(x, y, size = 7, color = "orangered", legend_label = "matched test values")
