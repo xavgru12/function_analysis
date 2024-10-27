@@ -9,10 +9,16 @@ class FunctionAnalysis:
 
     def __init__(
         self,
-        database_factory=DatabaseFactory(),
-        mapping_factory=MappingFactory(),
+        database_factory = None,
+        mapping_factory = None,
     ):
         """Init the FunctionAnalysis."""
+
+        if database_factory is None:
+            database_factory = DatabaseFactory()
+        if mapping_factory is None:
+            mapping_factory = MappingFactory()
+
         self.database_factory = database_factory
         self.mapping_factory = mapping_factory
 
