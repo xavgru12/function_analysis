@@ -47,6 +47,6 @@ poetry run ruff format --diff
 
 ## run the Python script
 ```
-poetry run python -m src.database
+poetry run python -m src.function_analysis
 ```
 

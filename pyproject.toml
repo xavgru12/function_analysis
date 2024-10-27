@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "function-analysis"
+name = "function_analysis"
 package-mode = false
 version = "0.1.0"
 description = ""
