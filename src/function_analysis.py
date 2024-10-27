@@ -5,7 +5,7 @@ from .mapping_factory import MappingFactory
 
 
 class FunctionAnalysis:
-    """Uses Database and Mapping in order to do a function analysis."""
+    """Use Database and Mapping in order to do a function analysis."""
 
     def __init__(
         self,
