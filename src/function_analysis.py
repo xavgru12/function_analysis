@@ -13,7 +13,6 @@ class FunctionAnalysis:
         mapping_factory = None,
     ):
         """Init the FunctionAnalysis."""
-
         if database_factory is None:
             database_factory = DatabaseFactory()
         if mapping_factory is None:
