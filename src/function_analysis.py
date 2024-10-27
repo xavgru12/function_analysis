@@ -1,12 +1,12 @@
-from .mapping_factory import MappingFactory
-from .database_factory import DatabaseFactory
-
 from bokeh.plotting import figure, output_file, show
+
+from .database_factory import DatabaseFactory
+from .mapping_factory import MappingFactory
 
 
 class FunctionAnalysis:
     def __init__(
-        self, database_factory=DatabaseFactory(), mapping_factory=MappingFactory()
+        self, database_factory=DatabaseFactory(), mapping_factory=MappingFactory(),
     ):
         self.database_factory = database_factory
         self.mapping_factory = mapping_factory
@@ -37,7 +37,7 @@ class FunctionAnalysis:
         train_data_model = self.database.train_list[training_index]
         ideal_data_model = self.database.ideal_list[ideal_index]
 
-        output_file("trainingfunction{}.html".format(train_data_model.name))
+        output_file(f"trainingfunction{train_data_model.name}.html")
 
         plot = self.create_plot(train_data_model.name, ideal_data_model.name)
 
@@ -51,9 +51,7 @@ class FunctionAnalysis:
 
     def create_plot(self, training_name, ideal_name):
         plot = figure(
-            title="training function {} and matching ideal function {} ".format(
-                training_name, ideal_name
-            ),
+            title=f"training function {training_name} and matching ideal function {ideal_name} ",
             x_axis_label="x",
             y_axis_label="y",
             width=700,
@@ -69,7 +67,7 @@ class FunctionAnalysis:
         plot.line(
             x_values,
             y_values,
-            legend_label="{} function {}".format(label, name),
+            legend_label=f"{label} function {name}",
             line_color=color,
             line_width=2,
         )
