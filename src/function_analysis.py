@@ -80,7 +80,11 @@ class FunctionAnalysis:
 
     def __plot_each_test_value(self, plot, x, y):
         plot.scatter(
-            x, y, size=7, color="orangered", legend_label="matched test values",
+            x,
+            y,
+            size=7,
+            color="orangered",
+            legend_label="matched test values",
         )
 
 
