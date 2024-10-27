@@ -50,6 +50,10 @@ poetry run ruff format --diff
 poetry run python -m src.function_analysis
 ```
 
+## UML
+
+Class diagrams of the script's design are created using drawio and saved in /docs.
+
 ## Input
 Inside /data, there are three CSV files for training functions, ideal functions and test values.
 
