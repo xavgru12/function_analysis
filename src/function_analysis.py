@@ -53,7 +53,10 @@ class FunctionAnalysis:
 
     def __create_plot(self, training_name, ideal_name):
         return figure(
-            title=f"training function {training_name} and matching ideal function {ideal_name} ",
+            title=(
+                f"training function {training_name} "
+                f"and matching ideal function {ideal_name}"
+            ),
             x_axis_label="x",
             y_axis_label="y",
             width=700,
