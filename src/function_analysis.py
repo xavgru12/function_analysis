@@ -9,8 +9,8 @@ class FunctionAnalysis:
 
     def __init__(
         self,
-        database_factory = None,
-        mapping_factory = None,
+        database_factory=None,
+        mapping_factory=None,
     ):
         """Init the FunctionAnalysis."""
         if database_factory is None:
