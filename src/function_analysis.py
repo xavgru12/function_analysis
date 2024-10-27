@@ -32,27 +32,27 @@ class FunctionAnalysis:
 
 
     def plot_each(self, mapping):
-            training_index = mapping.training_index
-            training_name = self.database.train_list[training_index].name
-            ideal_index = mapping.ideal_index
-            ideal_name = self.database.ideal_list[ideal_index].name
-            train_data_model = self.database.train_list[training_index]
-            ideal_data_model = self.database.ideal_list[ideal_index]
+        training_index = mapping.training_index
+        training_name = self.database.train_list[training_index].name
+        ideal_index = mapping.ideal_index
+        ideal_name = self.database.ideal_list[ideal_index].name
+        train_data_model = self.database.train_list[training_index]
+        ideal_data_model = self.database.ideal_list[ideal_index]
 
-            output_file("trainingfunction{}.html".format(training_name))
+        output_file("trainingfunction{}.html".format(training_name))
 
-            plot = figure(title="training function {} and matching ideal function {} ".format(training_name, ideal_name ),
-                        x_axis_label ="x",
-                        y_axis_label = "y",
-                        width=700 , height=500)
+        plot = figure(title="training function {} and matching ideal function {} ".format(training_name, ideal_name ),
+                    x_axis_label ="x",
+                    y_axis_label = "y",
+                    width=700 , height=500)
 
-            self.draw_graph(plot, train_data_model, "training", "darkslateblue")
+        self.draw_graph(plot, train_data_model, "training", "darkslateblue")
 
-            self.draw_graph(plot, ideal_data_model, "ideal", "hotpink")
+        self.draw_graph(plot, ideal_data_model, "ideal", "hotpink")
 
-            self.plot_test_values(plot, mapping.test_map_list)
+        self.plot_test_values(plot, mapping.test_map_list)
 
-            show(plot)
+        show(plot)
 
 
     def draw_graph(self, plot, data_model, label, color):
