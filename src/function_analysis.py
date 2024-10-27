@@ -40,7 +40,7 @@ class FunctionAnalysis:
             ideal_data_model = self.database.ideal_list[ideal_index]
 
             output_file("trainingfunction{}.html".format(training_name))
-            # defining plot with title, axes and dimensions
+
             plot = figure(title="training function {} and matching ideal function {} ".format(training_name, ideal_name ),
                         x_axis_label ="x",
                         y_axis_label = "y",
@@ -50,10 +50,10 @@ class FunctionAnalysis:
 
             self.draw_graph(plot, ideal_data_model, "ideal", "hotpink")
 
-            for test_map in mapping.test_map_list:
-                x_y_pair = self.database.test_list[test_map.test_list_index]
-                self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
+            self.plot_test_values(plot, mapping.test_map_list)
+
             show(plot)
+
 
     def draw_graph(self, plot, data_model, label, color):
         x_values = list(data_model.x_y_pairs.keys())
@@ -65,6 +65,11 @@ class FunctionAnalysis:
                 legend_label = "{} function {}".format(label, name),
                 line_color = color,
                 line_width = 2)
+
+    def plot_test_values(self, plot, test_map_list):
+        for test_map in test_map_list:
+            x_y_pair = self.database.test_list[test_map.test_list_index]
+            self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
 
 
     def plot_each_test_value(self, plot, x, y):
