@@ -80,7 +80,7 @@ class FunctionAnalysis:
             self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
 
     def plot_each_test_value(self, plot, x, y):
-        plot.circle(x, y, size=7, color="orangered", legend_label="matched test values")
+        plot.scatter(x, y, size=7, color="orangered", legend_label="matched test values")
 
 
 if __name__ == "__main__":
