@@ -50,14 +50,13 @@ class FunctionAnalysis:
         show(plot)
 
     def __create_plot(self, training_name, ideal_name):
-        plot = figure(
+        return figure(
             title=f"training function {training_name} and matching ideal function {ideal_name} ",
             x_axis_label="x",
             y_axis_label="y",
             width=700,
             height=500,
         )
-        return plot
 
     def __draw_graph(self, plot, data_model, label, color):
         x_values = list(data_model.x_y_pairs.keys())
