@@ -5,11 +5,14 @@ from .mapping_factory import MappingFactory
 
 
 class FunctionAnalysis:
+    """Uses Database and Mapping in order to do a function analysis."""
+
     def __init__(
         self,
         database_factory=DatabaseFactory(),
         mapping_factory=MappingFactory(),
     ):
+        """Init the FunctionAnalysis."""
         self.database_factory = database_factory
         self.mapping_factory = mapping_factory
 
@@ -18,17 +21,20 @@ class FunctionAnalysis:
         self.mapping_list = []
 
     def setup_mapping(self):
+        """Create the Mapping objects."""
         for training_index in range(len(self.database.train_list)):
             mapping = self.mapping_factory.create(training_index, self.database)
             self.mapping_list.append(mapping)
 
     def execute(self):
+        """Execute the function analysis."""
         for mapping in self.mapping_list:
             mapping.find_smallest_mean_squared_error()
             mapping.find_max_delta()
             mapping.find_matching_test_coordinates()
 
     def plot(self):
+        """Visual output."""
         for mapping in self.mapping_list:
             self.__plot_each(mapping)
 
