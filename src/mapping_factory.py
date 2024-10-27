@@ -6,4 +6,3 @@ class MappingFactory:
 
     def create(self, training_index, database):
         return Mapping(training_index, database)
-

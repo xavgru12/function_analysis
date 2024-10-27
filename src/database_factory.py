@@ -7,4 +7,3 @@ class DatabaseFactory:
     def create(self):
         """Create Database."""
         return Database()
-
