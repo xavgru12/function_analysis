@@ -1,0 +1,7 @@
+{
+    "drivername": "postgresql",
+    "username": "postgres",
+    "password": "postgres",
+    "host": "localhost",
+    "database": "function-analysis"
+}
