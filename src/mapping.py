@@ -96,8 +96,7 @@ class Mapping:
             if max_delta is None:
                 max_delta = delta
 
-            if delta > max_delta:
-                max_delta = delta
+            max_delta = max(delta, max_delta)
 
         if max_delta is None:
             error_message = "error: max delta could not be calculated"
