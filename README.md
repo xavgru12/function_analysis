@@ -47,6 +47,11 @@ poetry run ruff format --diff
 
 ## run the Python script
 ```
-poetry run python -m src.database
+poetry run python -m src.function_analysis
 ```
 
+## Input
+Inside /data, there are three CSV files for training functions, ideal functions and test values.
+
+## Output
+The script will generate four HTML files which can be opened and viewed in any web browser. Each HTML file represents one training function, the matcning ideal function including matching test values.
