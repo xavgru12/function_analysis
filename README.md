@@ -50,3 +50,5 @@ poetry run ruff format --diff
 poetry run python -m src.function_analysis
 ```
 
+## Output
+The script will generate four HTML files which can be opened and viewed in any web browser. Each HTML file represents one training function, the matcning ideal function including matching test values.
