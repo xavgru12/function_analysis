@@ -28,9 +28,9 @@ class FunctionAnalysis:
 
     def plot(self):
         for mapping in self.mapping_list:
-            self.plot_each(mapping)
+            self.__plot_each(mapping)
 
-    def plot_each(self, mapping):
+    def __plot_each(self, mapping):
         training_index = mapping.training_index
         ideal_index = mapping.ideal_index
 
@@ -39,17 +39,17 @@ class FunctionAnalysis:
 
         output_file(f"trainingfunction{train_data_model.name}.html")
 
-        plot = self.create_plot(train_data_model.name, ideal_data_model.name)
+        plot = self.__create_plot(train_data_model.name, ideal_data_model.name)
 
-        self.draw_graph(plot, train_data_model, "training", "darkslateblue")
+        self.__draw_graph(plot, train_data_model, "training", "darkslateblue")
 
-        self.draw_graph(plot, ideal_data_model, "ideal", "hotpink")
+        self.__draw_graph(plot, ideal_data_model, "ideal", "hotpink")
 
-        self.plot_test_values(plot, mapping.test_map_list)
+        self.__plot_test_values(plot, mapping.test_map_list)
 
         show(plot)
 
-    def create_plot(self, training_name, ideal_name):
+    def __create_plot(self, training_name, ideal_name):
         plot = figure(
             title=f"training function {training_name} and matching ideal function {ideal_name} ",
             x_axis_label="x",
@@ -59,7 +59,7 @@ class FunctionAnalysis:
         )
         return plot
 
-    def draw_graph(self, plot, data_model, label, color):
+    def __draw_graph(self, plot, data_model, label, color):
         x_values = list(data_model.x_y_pairs.keys())
         y_values = list(data_model.x_y_pairs.values())
         name = data_model.name
@@ -72,12 +72,12 @@ class FunctionAnalysis:
             line_width=2,
         )
 
-    def plot_test_values(self, plot, test_map_list):
+    def __plot_test_values(self, plot, test_map_list):
         for test_map in test_map_list:
             x_y_pair = self.database.test_list[test_map.test_list_index]
-            self.plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
+            self.__plot_each_test_value(plot, x_y_pair.point.x, x_y_pair.point.y)
 
-    def plot_each_test_value(self, plot, x, y):
+    def __plot_each_test_value(self, plot, x, y):
         plot.scatter(x, y, size=7, color="orangered", legend_label="matched test values")
 
 
